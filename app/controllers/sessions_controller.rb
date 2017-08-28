@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+
   def new
     @user = User.new
     session[:user_id] = nil
@@ -6,9 +7,6 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by(user_name: params[:user_name]).try(:authenticate, params[:password])
-    p @user
-    p "*" * 50
-    p params
     if @user
       session[:user_id] = @user.id
       redirect_to '/'
@@ -18,6 +16,10 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    p params[:session]
+    p current_user
+    p "*" * 54
+    p current_user.id
     session[:user_id] = nil
     redirect_to '/'
   end
