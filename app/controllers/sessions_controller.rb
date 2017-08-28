@@ -16,10 +16,6 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    p params[:session]
-    p current_user
-    p "*" * 54
-    p current_user.id
     session[:user_id] = nil
     redirect_to '/'
   end

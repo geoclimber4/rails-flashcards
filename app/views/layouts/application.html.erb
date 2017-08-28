@@ -11,14 +11,15 @@
   <body>
   <a href="/">Home</a>
   <% if current_user %>
-  <p> <a href="/users/<%= current_user.id %>">
-    <%= current_user.user_name %></a>
-    <%= link_to "Logout", session_path(current_user), method: :delete %>
-  </p>
-  <% else %>
-    <a href="/sessions/new">Log In</a> |
-    <a href="/users/new">Sign Up</a>
-<% end %>
+
+    <p> <a href="/users/<%= current_user.id %>">
+      <%= current_user.user_name %></a>
+      <%= link_to "Logout", session_path(current_user), method: :delete %>
+    </p>
+    <% else %>
+      <a href="/sessions/new">Log In</a> |
+      <a href="/users/new">Sign Up</a>
+  <% end %>
     <%= yield %>
   </body>
 </html>
