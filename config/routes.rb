@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :rounds, only: [:index, :create, :show] do
     resources :cards, only: [:show]
   end
+  resources :guesses, only: [:show, :create]
 
   resources :users, except: [:index]
   root 'decks#index'

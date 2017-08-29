@@ -5,10 +5,6 @@ class RoundsController < ApplicationController
   end
 
   def create
-    p "*"* 50
-    p params
-    p "%"*40
-    p round_params
     @round = Round.new(round_params)
 
     if @round.save
@@ -16,13 +12,19 @@ class RoundsController < ApplicationController
       redirect_to "/rounds/#{@round.id}"
     else
       redirect_to "https://www.google.com"
-      p "$"* 50
-      p @round
     end
   end
 
   def show
     @round = Round.find(params[:id])
+    @cards = @round.next_card
+    @card = @cards.first
+
+    if @card
+      redirect_to "/rounds/#{@round.id}/cards/#{@card.id}"
+    else
+      render "show"
+    end
   end
 
 

@@ -1,0 +1,12 @@
+<h2>Here's your question, you twerp.</h2>
+
+<h3 id="question"><%= @card.question %></h3>
+
+
+    <%= form_tag('/guesses') do  %>
+      <%= hidden_field_tag 'guess[card_id]', @card.id %>
+      <%= hidden_field_tag 'guess[round_id]', @round.id %>
+      <%= label_tag('guess[answer]', "Answer") %>
+      <%= text_field_tag(:answer) %>
+      <%= submit_tag "Submit your answer" %>
+    <% end %>
