@@ -1,0 +1,12 @@
+<h1>Answers</h1>
+<% if @guess.correct == 1 %>
+  <h2>Correct!</h2>
+<% else %>
+  <h2>WRONG!!!!!</h2>
+<% end %>
+  <h3>Correct answer is "<%= @guess.card.answer %>"</h3>
+
+
+<!-- redirect button -->
+
+<a href="/rounds/<%=@guess.round_id %>">Continue</a>
