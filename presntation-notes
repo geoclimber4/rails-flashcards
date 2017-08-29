@@ -19,3 +19,6 @@ You can specify a name for any route using the :as option:
 Custom routes
 You can specify custom names for the controller page
 (uncomment line 3 in routes)
+
+********
+Shout out to Jim for letting me use this code!
