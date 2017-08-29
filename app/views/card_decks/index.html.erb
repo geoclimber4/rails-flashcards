@@ -1,0 +1,15 @@
+<h1>This is the <strong>fancy</strong>Decks index page</h1>
+<ul>
+    <% @decks.each do |deck| %>
+      <li>
+
+        <%= deck.name %>
+
+        <%= form_tag('/rounds') do  %>
+          <%= hidden_field_tag 'round[deck_id]', deck.id %>
+          <%= hidden_field_tag 'round[user_id]', current_user.try(:id) %>
+          <%= submit_tag "Start Game" %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>

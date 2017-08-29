@@ -1,0 +1,32 @@
+<h1>Hello <%= current_user.user_name.capitalize %></h1>
+
+<!-- A Table is a deck. Each row is a round played with that deck. -->
+<% current_user.played_decks.uniq{|d| d.name}.each do |deck|  %>
+<!-- deck.name -->
+<h2><%= deck.name %></h2>
+<h3>Your Performance</h3>
+<table style="width:100%">
+  <tr>
+    <th>Date</th>
+    <th>Cards in Deck</th>
+    <th>First Guess Correct</th>
+    <th>Total Guesses</th>
+  </tr>
+  <!-- Select all of a deck's rounds where the user_name matches current user. (deck.rounds.select {|round| round.user == current_user}) -->
+   <!-- Iterate through them and print the row data for each. (deck.rounds.select {|round| round.user == current_user}.each do |round| -->
+   <% deck.rounds.where(:user_id => current_user.id).each do |round|%>
+  <tr>
+    <!-- round.created_at -->
+    <td><%=round.created_at %></td>
+    <!-- round.deck.cards.count -->
+    <td><%= round.deck.cards.count %></td>
+    <!-- round.guesses.first_try.count -->
+    <td>Coming soon: FIRST TRIES :)</td>
+    <!-- round.guesses.count -->
+    <td><%= round.guesses.count %></td>
+  </tr>
+  <% end %>
+</table>
+
+
+<% end %>

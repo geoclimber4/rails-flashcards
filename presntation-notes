@@ -1,0 +1,21 @@
+Routing
+
+
+resources
+  -generates all 7 routes according to restful conventions
+  -still requires controller to exist to handle methods and code
+
+URL Helpers
+  http://api.rubyonrails.org/classes/ActionView/Helpers/UrlHelper.html
+  -link_to
+  app/views/layouts/application.html.erb
+
+
+Named routes
+Naming Routes
+You can specify a name for any route using the :as option:
+
+
+Custom routes
+You can specify custom names for the controller page
+(uncomment line 3 in routes)
